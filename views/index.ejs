@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Abeja Assignment</title>
+
+    <!--Get Bootstrap CSS-->
+    <link href="static_content/css/bootstrap.css" rel="stylesheet">
+
+</head>
+<body>
+<!--Bootstrap Navbar -->
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+
+            <!--Bootstrap Hamburger -->
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#defaultNavbar1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Abeja Client Survey</a>
+        </div>
+
+        <!--Navigation Items -->
+        <div class="collapse navbar-collapse" id="defaultNavbar1">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Survey<span class="sr-only">(current)</span></a></li>
+                <li><a href="#">Results</a></li>
+            </ul>
+        </div>
+    </div>
+    <!--Navigation Items End -->
+</nav>
+
+<form action="/results" method="post" >
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <h1 class="text-center">Customer Survey</h1>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+
+        <!--Introduction-->
+        <div class="row text-center">
+            <div class="col-md-6 col-md-offset-3">Please tell us about you and how are feeling at at the moment on a scale of 1 to 5</div>
+        </div>
+
+        <hr>
+
+        <!--Sex Question row-->
+        <div class="row">
+            <div class="text-center col-md-12">
+                <h3>Sex</h3>
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-default" value="Male">Male</button>
+                    <button type="button" class="btn btn-default" value="Female">Female</button>
+                    <input type="hidden" name="sex" value="Male">
+                </div>
+            </div>
+        </div>
+
+        <!--Physical Conditions-->
+        <div class="row">
+            <!--Happy-->
+            <div class="text-center col-sm-4">
+                <h3>Hungry (1-5)</h3>
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-default" value="1">1</button>
+                    <button type="button" class="btn btn-default" value="2">2</button>
+                    <button type="button" class="btn btn-default active" value="3">3</button>
+                    <button type="button" class="btn btn-default" value="4">4</button>
+                    <button type="button" class="btn btn-default" value="5">5</button>
+                    <input type="hidden" name="hungry" value="3">
+                </div>
+            </div>
+
+            <!--Tired-->
+            <div class="col-sm-4 text-center">
+                <h3>Tired (1-5)</h3>
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-default" value="1">1</button>
+                    <button type="button" class="btn btn-default" value="2">2</button>
+                    <button type="button" class="btn btn-default active" value="3">3</button>
+                    <button type="button" class="btn btn-default" value="4">4</button>
+                    <button type="button" class="btn btn-default" value="5">5</button>
+                    <input type="hidden" name="tired" value="3">
+                </div>
+            </div>
+
+            <!--Sleepy-->
+            <div class="col-sm-4 text-center">
+                <h3>Sleepy (1-5)</h3>
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-default" value="1">1</button>
+                    <button type="button" class="btn btn-default" value="2">2</button>
+                    <button type="button" class="btn btn-default active" value="3">3</button>
+                    <button type="button" class="btn btn-default" value="4">4</button>
+                    <button type="button" class="btn btn-default" value="5">5</button>
+                    <input type="hidden" name="sleepy" value="3">
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="text-center col-md-12">
+                <input name="Submit" type="submit" class="btn btn-primary" id="Submit" value="Submit">
+            </div>
+        </div>
+    </div>
+</form>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="static_content/js/jquery-1.11.2.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="static_content/js/bootstrap.js"></script>
+<script>
+    $(document).ready(function(e) {
+        $(".btn-default").on("click",function(){
+            $(this).prevAll().nextAll().removeClass("active");
+            $(this).addClass("active");
+            $(this).siblings('input').val($(this).text());
+            alert($(this).siblings('input').val());
+        });
+    });
+</script>
+</body>
+</html>
