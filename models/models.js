@@ -8,6 +8,8 @@ db.once('open', function (callback) {
 });
 
 var Schema = mongoose.Schema;
+
+// Define Survey Result Schema
 var SurveyResult = new Schema({
         Sex: {type: String, required: true},
         Hungry: {type: Number, required: true},

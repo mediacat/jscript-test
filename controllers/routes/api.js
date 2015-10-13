@@ -3,7 +3,7 @@ var router = express.Router();
 var mongoose = require('mongoose');
 var schemas = require('../../models/models');
 
-/* GET API HELP ?RENDERED TO BROWSER*/
+/* GET API HELP RENDERED TO BROWSER*/
 router.get('/help', function(req, res) {
         res.redirect('../../static_content/apihelp');
     }
@@ -32,39 +32,8 @@ router.get('/', function(req, res) {
     });
 });
 
-/* POST SURVEY RESULT */
-
+/* POST SURVEY API */
 router.post('/', function(req, res) {
-    var sex = req.body.sex;
-    var hungry = req.body.hungry;
-    var tired = req.body.tired;
-    var sleepy = req.body.sleepy;
-    //call the create function for our database
-    var SurvResult = mongoose.model('result', schemas.SurveyModel);
-
-    var survey = new SurvResult({ Sex:sex, Hungry:hungry, Tired:tired, Sleepy:sleepy });
-    survey.save(function (err, result) {
-        if (err) {
-            res.send(err);
-        }
-        else {
-            //Blob has been created
-            console.log('POST creating new result: ' + result);
-            res.format({
-
-                html: function(){
-                    res.redirect('../../SurveyResults#thanks');
-                },
-                //JSON response
-                json: function(){
-                    res.json(result);
-                }
-            });
-        }
-    })
-});
-
-router.get('/:day/:month/:year', function(req, res) {
     var sex = req.body.sex;
     var hungry = req.body.hungry;
     var tired = req.body.tired;

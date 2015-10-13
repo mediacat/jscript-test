@@ -29,8 +29,8 @@
         <!--Navigation Items -->
         <div class="collapse navbar-collapse" id="defaultNavbar1">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Survey<span class="sr-only">(current)</span></a></li>
-                <li><a href="#">Results</a></li>
+                <li class="active"><a href="/">Survey<span class="sr-only">(current)</span></a></li>
+                <li><a href="/SurveyResults">Results</a></li>
             </ul>
         </div>
     </div>
@@ -49,7 +49,7 @@
 
         <!--Introduction-->
         <div class="row text-center">
-            <div class="col-md-6 col-md-offset-3">Please tell us about you and how are feeling at at the moment on a scale of 1 to 5</div>
+            <div class="col-md-6 col-md-offset-3">Please tell us about you and how are feeling at at the moment on a scale from 0 to 5</div>
         </div>
 
         <hr>
@@ -59,7 +59,7 @@
             <div class="text-center col-md-12">
                 <h3>Sex</h3>
                 <div class="btn-group" role="group">
-                    <button type="button" class="btn btn-default" value="Male">Male</button>
+                    <button type="button" class="btn btn-default active" value="Male">Male</button>
                     <button type="button" class="btn btn-default" value="Female">Female</button>
                     <input type="hidden" name="sex" value="Male">
                 </div>
@@ -70,8 +70,9 @@
         <div class="row">
             <!--Happy-->
             <div class="text-center col-sm-4">
-                <h3>Hungry (1-5)</h3>
+                <h3>Hungry (0-5)</h3>
                 <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-default" value="0">0</button>
                     <button type="button" class="btn btn-default" value="1">1</button>
                     <button type="button" class="btn btn-default" value="2">2</button>
                     <button type="button" class="btn btn-default active" value="3">3</button>
@@ -83,8 +84,9 @@
 
             <!--Tired-->
             <div class="col-sm-4 text-center">
-                <h3>Tired (1-5)</h3>
+                <h3>Tired (0-5)</h3>
                 <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-default" value="0">0</button>
                     <button type="button" class="btn btn-default" value="1">1</button>
                     <button type="button" class="btn btn-default" value="2">2</button>
                     <button type="button" class="btn btn-default active" value="3">3</button>
@@ -96,8 +98,9 @@
 
             <!--Sleepy-->
             <div class="col-sm-4 text-center">
-                <h3>Sleepy (1-5)</h3>
+                <h3>Sleepy (0-5)</h3>
                 <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-default" value="0">0</button>
                     <button type="button" class="btn btn-default" value="1">1</button>
                     <button type="button" class="btn btn-default" value="2">2</button>
                     <button type="button" class="btn btn-default active" value="3">3</button>
@@ -107,10 +110,10 @@
                 </div>
             </div>
         </div>
-
+        <div class="row">&nbsp;</div>
         <div class="row">
             <div class="text-center col-md-12">
-                <input name="Submit" type="submit" class="btn btn-primary" id="Submit" value="Submit">
+                <input name="Submit" type="submit" class="btn btn-primary btn-lg" id="Submit" value="Submit">
             </div>
         </div>
     </div>
@@ -123,10 +126,9 @@
 <script>
     $(document).ready(function(e) {
         $(".btn-default").on("click",function(){
-            $(this).prevAll().nextAll().removeClass("active");
+            $(this).siblings().removeClass("active");
             $(this).addClass("active");
             $(this).siblings('input').val($(this).text());
-            alert($(this).siblings('input').val());
         });
     });
 </script>
